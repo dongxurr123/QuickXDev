@@ -69,7 +69,7 @@ def runWithPlayer(scriptsDir):
     if sublime.platform()=="osx":
         playerPath=quick_cocos2dx_root+"/player/mac/player.app/Contents/MacOS/player"
     elif sublime.platform()=="windows":
-        playerPath=quick_cocos2dx_root+"/player/proj.win32/Debug/player.exe"
+        playerPath=quick_cocos2dx_root+"/player/win/player.exe"
     if playerPath=="" or not os.path.exists(playerPath):
         sublime.error_message("player no exists")
         return
