@@ -1,10 +1,14 @@
 {
     // must set the path
-    "quick_cocos2dx_root": "",
+    "quick_cocos2dx_root": "D:\\Develop\\cocos2d-x\\quick-cocos2d-x",
     // lua template attributes
     "date_format": "%Y-%m-%d %H:%M:%S",
     // i.e. peter or peter (peter@gmail.com)
-    "author": "Your Name",
+    "author": "dongxurr123@gmail.com",
     // compile_scripts encrypt key,no encrypt when empty
-    "compile_scripts_key": ""
+    "compile_scripts_key": "",
+    // player width indeed
+    "player_width": 400,
+    // player height indeed
+    "player_height": 600
 }

@@ -69,7 +69,7 @@ def runWithPlayer(scriptsDir):
     if sublime.platform()=="osx":
         playerPath=quick_cocos2dx_root+"/player/mac/player.app/Contents/MacOS/player"
     elif sublime.platform()=="windows":
-        playerPath=quick_cocos2dx_root+"/player/win/player.exe"
+        playerPath=quick_cocos2dx_root+"/player/proj.win32/Debug/player.exe"
     if playerPath=="" or not os.path.exists(playerPath):
         sublime.error_message("player no exists")
         return
@@ -102,18 +102,18 @@ def runWithPlayer(scriptsDir):
                     else:
                         args.append("-write-debug-log")
                         args.append("-console")
-                # resolution
-                m=re.match("^CONFIG_SCREEN_WIDTH\s*=\s*(\d+)",line)
-                if m:
-                    width=m.group(1)
-                m=re.match("^CONFIG_SCREEN_HEIGHT\s*=\s*(\d+)",line)
-                if m:  
-                    height=m.group(1)
             else:
                 break
         f.close()
-        args.append("-size")
-        args.append(width+"x"+height)
+
+    settings = helper.loadSettings("QuickXDev")
+
+    # resolution by dongxurr123@gmail.com
+    width = str(settings.get("player_width", 640))
+    height = str(settings.get("player_height", 960))
+    args.append("-size")
+    args.append(width+"x"+height)
+
     if process:
         try:
             process.terminate()
